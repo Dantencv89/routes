@@ -1,8 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import {BrowserRouter, Route} from 'react-router-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+///components
+import Home from './components/home'
+import Post from './components/post'
+import Profiles from './components/profiles'
+
+
+const App=()=>{
+    return (
+        <BrowserRouter>
+        <div>
+            <header>Header </header>
+            <Route path="/" exact component={Home} />
+            <Route path="/Post" exact component={Post} />
+            <Route path="/Profiles" exact component={Profiles} />
+        </div>
+        </BrowserRouter>
+    )
+}
+
+ReactDOM.render(<App/>,document.querySelector("#root"))
